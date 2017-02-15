@@ -1,0 +1,30 @@
+
+/* style.css */
+
+.marginT20{	margin-top: 20px;}
+.marginT30{	margin-top: 30px;}
+.marginT40{	margin-top: 40px;}
+.marginT50{	margin-top: 50px;}
+.marginT60{	margin-top: 60px;}
+
+
+.salad-btn{
+	background-color: #8099aa;
+}
+
+.topping-btn{
+	background-color: #8099aa;
+}
+
+.dressing-btn{
+	background-color: #8099aa;
+}
+
+.submit-btn{
+	width: 100%;
+	background-color: #ccc;
+}
+
+.green{
+	background-color: #80aa99;
+}

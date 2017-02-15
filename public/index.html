@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+ <head>
+	<script src="js/jquery-3.1.1.min.js"></script>
+	<script src="myscript.js"></script>
+
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.8/p5.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.8/addons/p5.dom.js"></script>
+	<script type="text/javascript">
+		
+		var text;     // variable for the text div you'll create
+		var socket = new WebSocket("ws://localhost:8081");
+		 
+		function setup() {
+		  // The socket connection needs two event listeners:
+		   socket.onopen = openSocket;
+		   socket.onmessage = showData;
+		 
+		   // make a new div and position it at 10, 10:
+		   /*
+		   text = createDiv("Read Messages Placeholder");
+		   text.position(10,10);
+		   */
+		}
+
+		function openSocket() {
+			/*
+			text.html("Socket open");
+			*/
+		}
+
+		function showData(result) {
+			// when the server returns, show the result in the div:
+			text.html("Sensor reading:" + result.data);
+		}
+
+		function sendData(){
+			socket.send("The instruction is hardcoded. This message does not matter");
+		}
+
+ 	</script>
+
+ 	<link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+ 	<link rel="stylesheet" href="style.css">
+
+ <meta charset="utf-8">
+ <title></title>
+ </head>
+ <body>
+
+ 	<div class="container">
+ 		<div class="row marginT40">
+ 			
+ 		<h1> Please choose your salad </h1>
+ 			<div class="col-xs-3">
+ 				<button class="btn-lg salad-btn"> Salad 1 </button>
+ 			</div>
+
+ 			<div class="col-xs-3">
+ 				<button class="btn-lg salad-btn"> Salad 2 </button>
+ 			</div>
+ 			
+ 			<div class="col-xs-3">
+ 				<button class="btn-lg salad-btn"> Salad 3 </button>
+ 			</div>
+
+ 			<div class="col-xs-3">
+ 				<button class="btn-lg salad-btn"> Salad 4 </button>
+ 			</div>
+
+ 		</div>
+
+ 		 <div class="row marginT40">
+ 			
+ 			<h1> Please choose your topping </h1>
+ 			<div class="col-xs-3">
+ 				<button class="btn-lg topping-btn"> Topping 1 </button>
+ 			</div>
+
+ 			<div class="col-xs-3">
+ 				<button class="btn-lg topping-btn"> Topping 2 </button>
+ 			</div>
+ 			
+ 			<div class="col-xs-3">
+ 				<button class="btn-lg topping-btn"> Topping 3 </button>
+ 			</div>
+
+ 			<div class="col-xs-3">
+ 				<button class="btn-lg topping-btn"> Topping 4 </button>
+ 			</div>
+
+ 		</div>
+
+ 		<div class="row marginT40">
+ 			
+ 			<h1> Please choose your dressing </h1>
+ 			<div class="col-xs-3">
+ 				<button class="btn-lg dressing-btn"> Dressing 1 </button>
+ 			</div>
+
+ 			<div class="col-xs-3">
+ 				<button class="btn-lg dressing-btn"> Dressing 2 </button>
+ 			</div>
+ 			
+ 			<div class="col-xs-3">
+ 				<button class="btn-lg dressing-btn"> Dressing 3 </button>
+ 			</div>
+
+ 			<div class="col-xs-3">
+ 				<button class="btn-lg dressing-btn"> Dressing 4 </button>
+ 			</div>
+
+ 		</div>
+
+
+	 	<div class="row marginT60">
+			<div class="col-xs-12">
+				<button class="btn-lg submit-btn" onclick="sendData()"> Confirm </button>
+			</div>
+		</div>
+
+ 	</div>
+ </body>
+</html>
