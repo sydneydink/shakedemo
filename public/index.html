@@ -7,7 +7,7 @@
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.8/p5.min.js"></script>
 	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.8/addons/p5.dom.js"></script>
 	<script type="text/javascript">
-		
+		alert('hello');
 		var text;     // variable for the text div you'll create
 		var socket = new WebSocket("ws://localhost:8081");
 		 
@@ -27,6 +27,7 @@
 			/*
 			text.html("Socket open");
 			*/
+			socket.send("Hello");
 		}
 
 		function showData(result) {

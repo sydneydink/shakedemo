@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>shake-salad-demo</title>
+
+    <link rel="icon" href="favicon.ico">
+
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="bower_components/jquery/external/rwd-map/jquery.rwdImageMaps.min.js"></script>
+
+    <script src="js/main.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
+
+</head>
+<body>
+
+    
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12">
+                <img src="img/page4.png" class="img-responsive" usemap="#map"/>
+                <map name="map">
+                    
+                    <area shape="rect" coords="96,2482,206,2595" href="page2.html">
+                    <area shape="rect" coords="257,2450,410,2603" href="index.html">
+                    <area shape="rect" coords="0,0,1594,2413" href="page5.html">
+                </map>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function(e) {
+            $('img.img-responsive').rwdImageMaps();
+        });
+    </script>
+</body>
+</html>

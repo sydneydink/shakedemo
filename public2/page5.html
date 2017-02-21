@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>shake-salad-demo</title>
+
+    <link rel="icon" href="favicon.ico">
+
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="bower_components/jquery/external/rwd-map/jquery.rwdImageMaps.min.js"></script>
+
+    <script src="js/main.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.8/p5.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.8/addons/p5.dom.js"></script>
+    <script type="text/javascript">
+        var text;     // variable for the text div you'll create
+        var socket = new WebSocket("ws://localhost:8081");
+         
+        function setup() {
+          // The socket connection needs two event listeners:
+           socket.onopen = openSocket;
+           socket.onmessage = showData;
+         
+           // make a new div and position it at 10, 10:
+           /*
+           text = createDiv("Read Messages Placeholder");
+           text.position(10,10);
+           */
+        }
+
+        function openSocket() {
+            /*
+            text.html("Socket open");
+            */
+            socket.send("Hello");
+        }
+
+        function showData(result) {
+            // when the server returns, show the result in the div:
+            text.html("Sensor reading:" + result.data);
+        }
+
+        function sendData(){
+            socket.send("The instruction is hardcoded. This message does not matter");
+        }
+
+    </script>
+
+</head>
+<body>
+
+    
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12">
+                <img src="img/page5.png" class="img-responsive" usemap="#map"/>
+                <map name="map">
+                    
+                   
+                    <area shape="rect" coords="0,0,1600,2833" href="page6.html">
+                </map>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function(e) {
+            $('img.img-responsive').rwdImageMaps();
+        });
+    </script>
+</body>
+</html>
