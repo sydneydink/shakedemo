@@ -16,6 +16,46 @@
     <script src="js/main.js"></script>
     <link rel="stylesheet" href="css/styles.css">
 
+    <!--<script type="text/javascript" src="js/p5.min.js"></script>
+    <script type="text/javascript" src="js/0.4.8/addons/p5.dom.js"></script>
+    <script type="text/javascript">
+        /*window.onload =  function sendData(){
+            socket.send("The instruction is hardcoded. This message does not matter");
+        };*/
+
+        var text;     // variable for the text div you'll create
+        var socket = new WebSocket("ws://localhost:8081");
+         
+        function setup() {
+          // The socket connection needs two event listeners:
+           socket.onopen = openSocket;
+           socket.onmessage = showData;
+         
+           // make a new div and position it at 10, 10:
+           /*
+           text = createDiv("Read Messages Placeholder");
+           text.position(10,10);
+           */
+        }
+
+        function openSocket() {
+            /*
+            text.html("Socket open");
+            */
+            //socket.send("Hello");
+        }
+
+        function showData(result) {
+            // when the server returns, show the result in the div:
+            text.html("Sensor reading:" + result.data);
+        }
+
+        function sendData2(){
+            socket.send("The instruction is hardcoded. This message does not matter");
+        }
+
+    </script>-->
+
 </head>
 <body>
 
@@ -29,7 +69,7 @@
                     
                     <area shape="rect" coords="96,2482,206,2595" href="page2.html">
                     <area shape="rect" coords="257,2450,410,2603" href="index.html">
-                    <area shape="rect" coords="0,0,1594,2413" href="page5.html">
+                    <area shape="rect" coords="0,0,1594,2413" href="page5.html" onlclick="sendData2">
                 </map>
             </div>
         </div>
